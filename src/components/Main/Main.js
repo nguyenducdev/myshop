@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import Drawer from 'react-native-drawer';
+
+import Menu from './Menu';
+import Shop from './Shop/Shop';
 
 export default class Main extends Component {
     gotoAuthencation() {
@@ -16,28 +20,25 @@ export default class Main extends Component {
         const { navigator } = this.props;
         navigator.push({ name: 'ORDER_HISTORY' });
     }
+
+    closeControlPanel = () => {
+        this.drawer.close();
+    };
+    openControlPanel = () => {
+        this.drawer.open();
+    };
+
     render() {
+        const { navigator } = this.props;
         return (
-            <View style={{ flex: 1, backgroundColor: 'red' }}>
-                <Text>Check Main</Text>
-                <TouchableOpacity
-                    onPress={this.gotoAuthencation.bind(this)}
-                >
-                    <Text>Go To Authencation</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    onPress={this.gotoChangeInfo.bind(this)}
-                >
-                    <Text>Go To Change Info</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    onPress={this.gotoOrderHistory.bind(this)}
-                >
-                    <Text>Go To Order History</Text>
-                </TouchableOpacity>
-            </View>
+            <Drawer
+                openDrawerOffset={0.4}
+                tapToClose
+                ref={(ref) => { this.drawer = ref; }}
+                content={<Menu navigator={navigator} />}
+            >
+                <Shop open={this.openControlPanel.bind(this)} />
+            </Drawer>
         );
     }
 }
