@@ -12,7 +12,7 @@ export default class App extends Component {
     render() {
         return (
             <Navigator
-                initialRoute={{ name: 'AUTHENTICATION' }}
+                initialRoute={{ name: 'MAIN' }}
                 renderScene={(route, navigator) => {
                     switch (route.name) {
                         case 'MAIN': return <Main navigator={navigator} />;
