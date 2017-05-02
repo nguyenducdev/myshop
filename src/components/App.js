@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Navigator } from 'react-native';
+import { StatusBar, Navigator } from 'react-native';
 
 import Authentication from './Authentication/Authentication';
 import ChangeInfo from './ChangeInfo/ChangeInfo';
@@ -12,7 +12,7 @@ export default class App extends Component {
     render() {
         return (
             <Navigator
-                initialRoute={{ name: 'MAIN' }}
+                initialRoute={{ name: 'AUTHENTICATION' }}
                 renderScene={(route, navigator) => {
                     switch (route.name) {
                         case 'MAIN': return <Main navigator={navigator} />;
