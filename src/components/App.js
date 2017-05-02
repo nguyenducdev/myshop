@@ -18,7 +18,7 @@ export default class App extends Component {
                         case 'MAIN': return <Main navigator={navigator} />;
                         case 'CHANGE_INFO': return <ChangeInfo navigator={navigator} />;
                         case 'AUTHENTICATION': return <Authentication navigator={navigator} />;
-                        default: return <OrderHistory navigator={navigator} />;
+                        defaMainult: return <OrderHistory navigator={navigator} />;
                     }
                 }}
                 configureScene={route => {
