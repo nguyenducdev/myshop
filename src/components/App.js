@@ -12,19 +12,19 @@ export default class App extends Component {
     render() {
         return (
             <Navigator
-                initialRoute={{ name: 'MAIN'}}
+                initialRoute={{ name: 'MAIN' }}
                 renderScene={(route, navigator) => {
                     switch (route.name) {
                         case 'MAIN': return <Main navigator={navigator} />;
                         case 'CHANGE_INFO': return <ChangeInfo navigator={navigator} />;
                         case 'AUTHENTICATION': return <Authentication navigator={navigator} />;
-                        defaMainult: return <OrderHistory navigator={navigator} />;
+                        default: return <OrderHistory navigator={navigator} />;
                     }
                 }}
                 configureScene={route => {
-                    if (route.name === 'AUTHENTICATION') { 
+                    if (route.name === 'AUTHENTICATION') {
                         return Navigator.SceneConfigs.FloatFromRight;
-                    } 
+                    }
                     return Navigator.SceneConfigs.FloatFromLeft;
                 }}
             />

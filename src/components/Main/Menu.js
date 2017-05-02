@@ -38,7 +38,10 @@ class Menu extends Component {
             } = styles;
         const logoutJSX = (
             <View style={{ flex: 1 }}>
-                <TouchableOpacity style={btnStyle}>
+                <TouchableOpacity
+                    style={btnStyle}
+                    onPress={this.gotoAuthencation.bind(this)}
+                >
                     <Text style={btnText}>Sign In</Text>
                 </TouchableOpacity>
             </View>
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
     },
     btnText: {
         color: '#34B098',
-        fontSize: 20,
+        fontSize: 15,
     },
     btnSingInStyle: {
         height: 50,
