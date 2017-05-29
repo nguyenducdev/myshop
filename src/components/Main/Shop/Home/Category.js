@@ -10,6 +10,7 @@ import {
 import Swiper from 'react-native-swiper';
 
 const { width } = Dimensions.get('window');
+const url = 'http://:9000/images/type/';
 
 export default class Category extends Component {
     gotoListProduct() {
@@ -28,7 +29,7 @@ export default class Category extends Component {
                     <Swiper showsPagination width={imageWidth} height={imageHeight}>
                         {types.map(e => (
                             <TouchableOpacity onPress={this.gotoListProduct.bind(this)} key={e.id}>
-                                <Image source={{ uri: `http://:9000/images/type/${e.image}` }} style={banerStyle}>
+                                <Image source={{ uri: `${url}${e.image}` }} style={banerStyle}>
                                     <Text style={cateTitle} >{e.name}</Text>
                                 </Image>
                             </TouchableOpacity>
