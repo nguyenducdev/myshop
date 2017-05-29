@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import {
+    View,
+    Text,
+    Image,
+    StyleSheet,
+    Dimensions
+} from 'react-native';
 
 
 import bannerImage from '../../../../media/temp/banner.jpg';
