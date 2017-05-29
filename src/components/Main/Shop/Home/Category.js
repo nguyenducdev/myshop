@@ -9,10 +9,6 @@ import {
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 
-import littleIcon from '../../../../media/temp/little.jpg';
-import maxiIcon from '../../../../media/temp/maxi.jpg';
-import partyIcon from '../../../../media/temp/party.jpg';
-
 const { width } = Dimensions.get('window');
 
 export default class Category extends Component {
@@ -22,6 +18,7 @@ export default class Category extends Component {
     }
     render() {
         const { wrapper, banerStyle, textStyle, cateTitle } = styles;
+        const { types } = this.props;
         return (
             <View style={wrapper} >
                 <View style={{ justifyContent: 'center', height: 50 }}>
@@ -29,21 +26,13 @@ export default class Category extends Component {
                 </View>
                 <View style={{ flex: 4, justifyContent: 'flex-end' }} showsButtons >
                     <Swiper showsPagination width={imageWidth} height={imageHeight}>
-                        <TouchableOpacity onPress={this.gotoListProduct.bind(this)}>
-                            <Image source={littleIcon} style={banerStyle}>
-                                <Text style={cateTitle} >Maxi Dress</Text>
-                            </Image>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={this.gotoListProduct.bind(this)}>
-                            <Image source={maxiIcon} style={banerStyle}>
-                                <Text style={cateTitle} >Maxi Dress</Text>
-                            </Image>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={this.gotoListProduct.bind(this)}>
-                            <Image source={partyIcon} style={banerStyle}>
-                                <Text style={cateTitle} >Maxi Dress</Text>
-                            </Image>
-                        </TouchableOpacity>
+                        {types.map(e => (
+                            <TouchableOpacity onPress={this.gotoListProduct.bind(this)} key={e.id}>
+                                <Image source={{ uri: `http://:9000/images/type/${e.image}` }} style={banerStyle}>
+                                    <Text style={cateTitle} >{e.name}</Text>
+                                </Image>
+                            </TouchableOpacity>
+                        ))}
                     </Swiper>
                 </View>
             </View>
